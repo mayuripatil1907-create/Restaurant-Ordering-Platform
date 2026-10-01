@@ -1,1 +1,40 @@
+                                                    Restaurant Ordering Platform
 
+A web-based restaurant ordering platform designed to make food ordering and restaurant management easier.
+
+Features :
+- User Registration and Login
+- Digital Menu
+- Online Food Ordering
+- Shopping Cart
+- Order History
+- Table Reservation
+- Customer Dashboard
+- Profile Management
+- Order Management
+
+Technologies Used :
+- HTML
+- CSS
+- JavaScript
+- Java
+- MySQL
+- JDBC
+
+Project Structure :
+The project contains frontend pages, Java backend files, and MySQL database components.
+
+Database :
+Database used: "restaurant_db"
+
+Main tables include:
+- Users
+- Orders
+- Reservations
+- Menu
+
+Purpose :
+This project demonstrates the development of a restaurant ordering platform using frontend technologies, Java backend programming, and MySQL database connectivity.
+
+Task :
+This project is developed as Task 2 – Restaurant Ordering Platform.
