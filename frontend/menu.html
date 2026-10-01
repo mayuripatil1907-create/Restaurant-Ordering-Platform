@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Restaurant Menu</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Restaurant<span>Platform</span></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html" class="login-btn">Login</a>
+    </nav>
+</header>
+
+
+<section class="menu-section">
+
+    <h1>Our Menu</h1>
+
+    <p class="menu-subtitle">
+        Choose your favourite food and add it to your cart.
+    </p>
+
+
+    <div class="menu-container">
+
+
+        <!-- Pizza -->
+
+        <div class="food-card">
+
+            <div class="food-image">🍕</div>
+
+            <h3>Margherita Pizza</h3>
+
+            <p>
+                Classic pizza with tomato sauce and mozzarella cheese.
+            </p>
+
+            <h4>₹249</h4>
+
+            <button
+                class="btn"
+                onclick="addToCart('Margherita Pizza', 249)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Burger -->
+
+        <div class="food-card">
+
+            <div class="food-image">🍔</div>
+
+            <h3>Cheese Burger</h3>
+
+            <p>
+                Delicious burger with cheese and fresh vegetables.
+            </p>
+
+            <h4>₹199</h4>
+
+            <button
+                class="btn"
+                onclick="addToCart('Cheese Burger', 199)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Pasta -->
+
+        <div class="food-card">
+
+            <div class="food-image">🍝</div>
+
+            <h3>White Sauce Pasta</h3>
+
+            <p>
+                Creamy pasta prepared with white sauce and herbs.
+            </p>
+
+            <h4>₹229</h4>
+
+            <button
+                class="btn"
+                onclick="addToCart('White Sauce Pasta', 229)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Biryani -->
+
+        <div class="food-card">
+
+            <div class="food-image">🍛</div>
+
+            <h3>Chicken Biryani</h3>
+
+            <p>
+                Aromatic rice cooked with delicious spices and chicken.
+            </p>
+
+            <h4>₹299</h4>
+
+            <button
+                class="btn"
+                onclick="addToCart('Chicken Biryani', 299)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Sandwich -->
+
+        <div class="food-card">
+
+            <div class="food-image">🥪</div>
+
+            <h3>Grilled Sandwich</h3>
+
+            <p>
+                Crispy grilled sandwich with fresh vegetables and cheese.
+            </p>
+
+            <h4>₹149</h4>
+
+            <button
+                class="btn"
+                onclick="addToCart('Grilled Sandwich', 149)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- French Fries -->
+
+        <div class="food-card">
+
+            <div class="food-image">🍟</div>
+
+            <h3>French Fries</h3>
+
+            <p>
+                Crispy golden fries served with delicious seasoning.
+            </p>
+
+            <h4>₹129</h4>
+
+            <button
+                class="btn"
+                onclick="addToCart('French Fries', 129)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Cold Coffee -->
+
+        <div class="food-card">
+
+            <div class="food-image">🥤</div>
+
+            <h3>Cold Coffee</h3>
+
+            <p>
+                Refreshing chilled coffee with creamy milk.
+            </p>
+
+            <h4>₹119</h4>
+
+            <button
+                class="btn"
+                onclick="addToCart('Cold Coffee', 119)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Chocolate Cake -->
+
+        <div class="food-card">
+
+            <div class="food-image">🍰</div>
+
+            <h3>Chocolate Cake</h3>
+
+            <p>
+                Soft and delicious chocolate cake for dessert lovers.
+            </p>
+
+            <h4>₹159</h4>
+
+            <button
+                class="btn"
+                onclick="addToCart('Chocolate Cake', 159)">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>Restaurant Ordering Platform</h3>
+
+    <p>
+        Modern restaurant ordering and table management system.
+    </p>
+
+    <p>
+        © 2026 Restaurant Ordering Platform
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

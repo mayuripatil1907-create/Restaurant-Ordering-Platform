@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .orders-section {
+            padding: 120px 8% 60px;
+            min-height: 70vh;
+        }
+
+        .orders-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .order-card {
+            background: white;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .order-card p {
+            margin: 8px 0;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Restaurant<span>Platform</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="cart.html">Cart</a>
+        <a href="customer-dashboard.html">Dashboard</a>
+    </nav>
+
+</header>
+
+
+<section class="orders-section">
+
+    <h2>My Orders</h2>
+
+    <div id="orders-container">
+        <p>Loading orders...</p>
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>Restaurant Ordering Platform</h3>
+
+    <p>© 2026 Restaurant Ordering Platform</p>
+
+</footer>
+
+
+<script>
+
+async function loadOrders() {
+
+    const userId = localStorage.getItem("user_id");
+
+    if (!userId) {
+
+        document.getElementById("orders-container").innerHTML =
+            "<p>Please login first.</p>";
+
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:8080/order-history?user_id="
+            + encodeURIComponent(userId)
+        );
+
+        const result = await response.text();
+
+        const container =
+            document.getElementById("orders-container");
+
+        if (result === "No orders found") {
+
+            container.innerHTML =
+                "<p>You have not placed any orders yet.</p>";
+
+            return;
+        }
+
+        if (result === "User ID required") {
+
+            container.innerHTML =
+                "<p>User ID is required.</p>";
+
+            return;
+        }
+
+        const orders = result.trim().split("\n");
+
+        container.innerHTML = "";
+
+        orders.forEach(order => {
+
+            const values =
+                new URLSearchParams(order);
+
+            const orderId =
+                values.get("order_id");
+
+            const orderDate =
+                values.get("order_date");
+
+            const total =
+                values.get("total_amount");
+
+            const orderType =
+                values.get("order_type");
+
+            const status =
+                values.get("status");
+
+            const card =
+                document.createElement("div");
+
+            card.className = "order-card";
+
+            card.innerHTML = `
+    <h3>Order #${orderId}</h3>
+
+    <p>
+        <strong>Date:</strong>
+        ${orderDate}
+    </p>
+
+    <p>
+        <strong>Total Amount:</strong>
+        ₹${total}
+    </p>
+
+    <p>
+        <strong>Order Type:</strong>
+        ${orderType}
+    </p>
+
+    <p>
+        <strong>Status:</strong>
+        <span class="status">${status}</span>
+    </p>
+`;
+
+            container.appendChild(card);
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("orders-container").innerHTML =
+            "<p>Java server connection failed!</p>";
+    }
+}
+
+loadOrders();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Restaurant<span>Platform</span></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html" class="login-btn">Login</a>
+    </nav>
+</header>
+
+<section class="cart-section">
+
+    <h2>Your Cart</h2>
+
+    <div id="cart-items">
+        <p>Your cart is empty.</p>
+    </div>
+
+    <div class="cart-summary">
+
+        <h3>
+            Total:
+            <span id="cart-total">₹0</span>
+        </h3>
+
+        <button class="btn" onclick="placeOrder()">
+            Place Order
+        </button>
+
+        <button class="clear-btn" onclick="clearCart()">
+            Clear Cart
+        </button>
+
+    </div>
+
+</section>
+
+<footer>
+    <h3>Restaurant Ordering Platform</h3>
+    <p>© 2026 Restaurant Ordering Platform</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

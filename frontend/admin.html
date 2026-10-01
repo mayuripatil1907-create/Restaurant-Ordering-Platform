@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Restaurant<span>Platform</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="kitchen.html">Kitchen</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+
+</header>
+
+
+<section class="admin-section">
+
+    <h1>Admin Dashboard</h1>
+
+    <p class="dashboard-subtitle">
+        Manage your restaurant platform
+    </p>
+
+
+    <!-- Statistics -->
+
+    <div class="admin-stats">
+
+        <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <h3>Total Customers</h3>
+            <p>125</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🍽️</div>
+            <h3>Menu Items</h3>
+            <p>24</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📦</div>
+            <h3>Total Orders</h3>
+            <p>86</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🪑</div>
+            <h3>Reservations</h3>
+            <p>32</p>
+        </div>
+
+    </div>
+
+
+    <!-- Management -->
+
+    <h2 class="management-title">
+        Management
+    </h2>
+
+
+    <div class="management-container">
+
+        <div class="management-card">
+
+            <div class="management-icon">
+                🍔
+            </div>
+
+            <h3>Manage Menu</h3>
+
+            <p>
+                Add, update and remove restaurant food items.
+            </p>
+
+            <button class="admin-btn"
+                onclick="alert('Menu Management will be connected to MySQL later.')">
+                Manage Menu
+            </button>
+
+        </div>
+
+
+        <div class="management-card">
+
+            <div class="management-icon">
+                🪑
+            </div>
+
+            <h3>Manage Tables</h3>
+
+            <p>
+                View and manage restaurant table availability.
+            </p>
+
+            <button class="admin-btn"
+                onclick="alert('Table Management will be connected to MySQL later.')">
+                Manage Tables
+            </button>
+
+        </div>
+
+
+        <div class="management-card">
+
+            <div class="management-icon">
+                📦
+            </div>
+
+            <h3>Manage Orders</h3>
+
+            <p>
+                View customer orders and their status.
+            </p>
+
+            <button class="admin-btn"
+                onclick="alert('Order Management will be connected to MySQL later.')">
+                Manage Orders
+            </button>
+
+        </div>
+
+
+        <div class="management-card">
+
+            <div class="management-icon">
+                📅
+            </div>
+
+            <h3>Reservations</h3>
+
+            <p>
+                View and manage customer table reservations.
+            </p>
+
+            <button class="admin-btn"
+                onclick="alert('Reservation Management will be connected to MySQL later.')">
+                Manage Reservations
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>Restaurant Ordering Platform</h3>
+
+    <p>
+        Admin Management System
+    </p>
+
+</footer>
+
+</body>
+</html>

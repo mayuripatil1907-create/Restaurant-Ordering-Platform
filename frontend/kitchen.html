@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kitchen Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Restaurant<span>Platform</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="kitchen.html">Kitchen</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+
+</header>
+
+
+<section class="kitchen-section">
+
+    <h1>Kitchen Dashboard</h1>
+
+    <p class="dashboard-subtitle">
+        Manage incoming restaurant orders
+    </p>
+
+
+    <div class="order-container">
+
+
+        <!-- Order 101 -->
+
+        <div class="order-card">
+
+            <div class="order-header">
+
+                <h3>Order #101</h3>
+
+                <span class="status placed">
+                    Placed
+                </span>
+
+            </div>
+
+            <p><strong>Customer:</strong> Kirti</p>
+
+            <p><strong>Order Type:</strong> Online</p>
+
+            <hr>
+
+            <h4>Items</h4>
+
+            <ul>
+                <li>Margherita Pizza × 1</li>
+                <li>French Fries × 1</li>
+                <li>Cold Coffee × 2</li>
+            </ul>
+
+            <h3 class="order-total">
+                Total: ₹616
+            </h3>
+
+            <div class="order-actions">
+
+                <button
+                    class="action-btn accept"
+                    onclick="updateOrderStatus(this, 'Accepted')">
+                    Accept
+                </button>
+
+                <button
+                    class="action-btn preparing"
+                    onclick="updateOrderStatus(this, 'Preparing')">
+                    Preparing
+                </button>
+
+                <button
+                    class="action-btn ready"
+                    onclick="updateOrderStatus(this, 'Ready')">
+                    Ready
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Order 102 -->
+
+        <div class="order-card">
+
+            <div class="order-header">
+
+                <h3>Order #102</h3>
+
+                <span class="status preparing">
+                    Preparing
+                </span>
+
+            </div>
+
+            <p><strong>Customer:</strong> Urvashi</p>
+
+            <p><strong>Order Type:</strong> Dine-in</p>
+
+            <hr>
+
+            <h4>Items</h4>
+
+            <ul>
+                <li>Cheese Burger × 2</li>
+                <li>French Fries × 2</li>
+            </ul>
+
+            <h3 class="order-total">
+                Total: ₹656
+            </h3>
+
+            <div class="order-actions">
+
+                <button
+                    class="action-btn ready"
+                    onclick="updateOrderStatus(this, 'Ready')">
+                    Mark Ready
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>Restaurant Ordering Platform</h3>
+
+    <p>
+        Kitchen Order Management System
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

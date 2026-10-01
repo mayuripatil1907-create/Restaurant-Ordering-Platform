@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        header {
+            background: #173b7a;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8ec5ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .profile-box {
+            background: white;
+            width: 400px;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .profile-icon {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .profile-box h1 {
+            color: #173b7a;
+        }
+
+        .profile-info {
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        .profile-info p {
+            padding: 12px;
+            background: #f4f7fb;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #173b7a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Restaurant<span>Platform</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="cart.html">Cart</a>
+        <a href="customer-dashboard.html">Dashboard</a>
+    </nav>
+
+</header>
+
+
+<section class="profile-section">
+
+    <div class="profile-box">
+
+        <div class="profile-icon">👤</div>
+
+        <h1>My Profile</h1>
+
+        <div class="profile-info">
+
+            <p>
+                <strong>Name:</strong>
+                <span id="profile-name">Customer</span>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <span id="profile-email"></span>customer@example.com</span>
+            </p>
+
+            <p>
+                <strong>Role:</strong>
+                <span id="profile-role">Customer</span>
+            </p>
+             
+            <p>
+                <strong>Phone:</strong>
+                <span id="profile-phone">Not provided</span>
+            </p>
+
+        </div>
+
+        <a href="customer-dashboard.html" class="btn">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+</section>
+<script>
+async function loadProfile() {
+
+    const email = prompt("Enter your registered email:");
+
+    if (!email) {
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:8080/profile?email="
+            + encodeURIComponent(email)
+        );
+
+        const result = await response.text();
+
+        if (result === "User not found") {
+
+            alert("User not found!");
+            return;
+        }
+
+        const values = new URLSearchParams(result);
+
+        document.getElementById("profile-name").textContent =
+            values.get("name");
+
+        document.getElementById("profile-email").textContent =
+            values.get("email");
+
+        document.getElementById("profile-role").textContent =
+            values.get("role");
+
+        document.getElementById("profile-phone").textContent =
+            values.get("phone") || "Not provided";
+
+    } catch (error) {
+
+        alert("Java server connection failed!");
+
+        console.error(error);
+    }
+}
+
+loadProfile();
+</script>
+
+</body>
+</html>

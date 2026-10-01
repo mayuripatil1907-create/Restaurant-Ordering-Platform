@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Reservations</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Restaurant<span>Platform</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="cart.html">Cart</a>
+        <a href="customer-dashboard.html">Dashboard</a>
+    </nav>
+
+</header>
+
+
+<section class="form-section">
+
+    <div class="form-box" style="max-width: 900px;">
+
+        <h2>My Reservations</h2>
+
+        <div id="reservation-list">
+            Loading reservations...
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>Restaurant Ordering Platform</h3>
+
+    <p>
+        Modern restaurant ordering and table management system.
+    </p>
+
+</footer>
+
+
+<script>
+
+async function loadReservations() {
+
+    const userId = localStorage.getItem("user_id");
+
+    if (!userId) {
+
+        document.getElementById("reservation-list").innerHTML =
+            "<p>Please login to view your reservations.</p>";
+
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:8080/reservation-history?user_id=" + userId
+        );
+
+        const result = await response.text();
+
+        if (result === "No reservations found") {
+
+            document.getElementById("reservation-list").innerHTML =
+                "<p>No reservations found.</p>";
+
+            return;
+        }
+
+        const reservations = result.trim().split("\n");
+
+        let html = `
+            <div style="overflow-x:auto;">
+                <table style="width:100%; border-collapse:collapse; margin-top:20px;">
+
+                    <tr>
+                        <th style="padding:12px; border-bottom:1px solid #ddd;">
+                            Reservation ID
+                        </th>
+
+                        <th style="padding:12px; border-bottom:1px solid #ddd;">
+                            Date
+                        </th>
+
+                        <th style="padding:12px; border-bottom:1px solid #ddd;">
+                            Time
+                        </th>
+
+                        <th style="padding:12px; border-bottom:1px solid #ddd;">
+                            Guests
+                        </th>
+
+                        <th style="padding:12px; border-bottom:1px solid #ddd;">
+                            Status
+                        </th>
+
+                        <th style="padding:12px; border-bottom:1px solid #ddd;">
+                            Table
+                        </th>
+                    </tr>
+        `;
+
+        reservations.forEach(function(item) {
+
+            const data = new URLSearchParams(item);
+
+            html += `
+                <tr>
+
+                    <td style="padding:12px; text-align:center;">
+                        ${data.get("reservation_id")}
+                    </td>
+
+                    <td style="padding:12px; text-align:center;">
+                        ${data.get("reservation_date")}
+                    </td>
+
+                    <td style="padding:12px; text-align:center;">
+                        ${data.get("reservation_time")}
+                    </td>
+
+                    <td style="padding:12px; text-align:center;">
+                        ${data.get("number_of_guests")}
+                    </td>
+
+                    <td style="padding:12px; text-align:center;">
+                        ${data.get("status")}
+                    </td>
+
+                    <td style="padding:12px; text-align:center;">
+                        Table ${data.get("table_number")}
+                    </td>
+
+                </tr>
+            `;
+
+        });
+
+        html += `
+                </table>
+            </div>
+        `;
+
+        document.getElementById("reservation-list").innerHTML = html;
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("reservation-list").innerHTML =
+            "<p>Unable to load reservations. Please start the Java server.</p>";
+    }
+}
+
+
+loadReservations();
+
+</script>
+
+</body>
+</html>

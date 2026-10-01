@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+        }
+
+        header {
+            background: #173b7a;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8ec5ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .form-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .form-box {
+            background: white;
+            width: 350px;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-box h1 {
+            text-align: center;
+            color: #173b7a;
+        }
+
+        .form-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .form-box button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background: #173b7a;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-link a {
+            color: #173b7a;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Restaurant<span>Platform</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+</header>
+
+<section class="form-section">
+
+    <div class="form-box">
+
+        <h1>Create Account</h1>
+
+        <form onsubmit="registerUser(event)">
+
+            <input
+                type="text"
+                id="register-name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <input
+                type="email"
+                id="register-email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <input
+                type="password"
+                id="register-password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+        <p class="form-link">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
+
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
